@@ -23,9 +23,9 @@ const UserSchema= new Schema({
         type: Date,
         default : Date.now
     },
-    isAdmin: {
+    userType: {
         type: String,
-        default: 'false'
+        default: 'User'
     }
 });
 

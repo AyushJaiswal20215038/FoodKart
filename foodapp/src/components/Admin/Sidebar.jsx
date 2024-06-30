@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './styleAdmin.css';
 
-export default function Sidebar() {
+export default function Sidebar({changePage}) {
+
     return (
         <div>
             <div className="bg-white sidebar p-2">
@@ -12,22 +13,22 @@ export default function Sidebar() {
                 </div>
                 <hr className="text-dark" />
                 <div className="list-group list-group-flush">
-                    <Link to="/adminPage" className="list-group-item py-2">
+                    <div  className="list-group-item py-2" onClick={()=>changePage(1)}>
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">Dashboard</span>
-                    </Link>
-                    <Link to="/" className="list-group-item py-2">
+                    </div>
+                    <div className="list-group-item py-2" onClick={()=>changePage(2)}>
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">User Details</span>
-                    </Link>
-                    <Link to="/" className="list-group-item py-2">
+                    </div>
+                    <div className="list-group-item py-2" onClick={()=>changePage(3)}>
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">Received Orders</span>
-                    </Link>
-                    <Link to="/" className="list-group-item py-2">
+                    </div>
+                    <div className="list-group-item py-2" onClick={()=>changePage(4)}>
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">Food Items</span>
-                    </Link>
+                    </div>
                     <div className="list-group-item py-2" onClick={()=>alert("Logout")}>
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">Logout</span>

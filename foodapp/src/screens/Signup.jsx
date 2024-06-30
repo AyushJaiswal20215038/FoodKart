@@ -5,7 +5,7 @@ export default function Signup() {
     let navigate = useNavigate();
 
     const [userType,setuserType]=useState('User');
-    const [credentials, setcredentials] = useState({ name: "", email: "", password: "", geolocation: "", userType: "" });
+    const [credentials, setcredentials] = useState({ name: "", email: "", password: "", geolocation: "", adminSecret: "" });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,7 +19,7 @@ export default function Signup() {
                 email: credentials.email,
                 password: credentials.password,
                 location: credentials.geolocation,
-                userType: credentials.userType
+                adminSecret: credentials.adminSecret
             })
         });
         const json = await response.json()
@@ -39,7 +39,7 @@ export default function Signup() {
 
     const onChangeRadio= (event)=>{
         setuserType(event.target.value);
-        setcredentials({ ...credentials, [event.target.name]: event.target.value });
+        // setcredentials({ ...credentials, [event.target.name]: event.target.value });
     }
     
 
@@ -58,7 +58,7 @@ export default function Signup() {
                     {userType === "Admin" ?
                         (<div className="mb-3">
                             <label htmlFor="name" className="form-label">secret key</label>
-                            <input type="text" className="form-control" name='name' value=''  />
+                            <input type="text" className="form-control" name='adminSecret' value={credentials.adminSecret} onChange={onChange} />
                         </div>)
                         : ""
                     }

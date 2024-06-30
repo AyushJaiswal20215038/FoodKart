@@ -18,9 +18,13 @@ app.use((req,res,next)=>{
 
 app.use(express.json());
 app.use('/api',require("./Routes/CreateUser"));
-app.use('/api',require("./Routes/DisplayData"));
+// app.use('/api',require("./Routes/DisplayData"));
 app.use('/api',require("./Routes/OrderData"));
 app.use('/api',require("./Routes/MyorderData"));
+app.use('/api',require("./Routes/Admin/UserData"));
+app.use('/api',require("./Routes/Admin/DeleteUserData"));
+app.use('/api',require("./Routes/Admin/ReceivedOrders"));
+app.use('/api',require("./Routes/Admin/GetFoodItems"));
 
 app.get('/', (req,res)=>{
     res.send('Hello World!')

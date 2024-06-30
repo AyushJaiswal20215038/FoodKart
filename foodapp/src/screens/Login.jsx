@@ -25,10 +25,15 @@ export default function Login() {
             alert("Enter Valid Credentials");
         }
         if(json.success){
+          localStorage.setItem("userType",json.userType);
           localStorage.setItem("userEmail",credentials.email);
           localStorage.setItem("authToken",json.authToken);
           console.log(localStorage.getItem("authToken"));
-          navigate("/");
+          if(json.userType==="Admin"){
+            navigate("/adminPage");
+          }else{
+            navigate("/");
+          }
         }
     }
 
