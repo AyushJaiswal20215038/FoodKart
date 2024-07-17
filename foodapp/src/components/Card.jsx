@@ -8,7 +8,7 @@ let data= useCart();
 let options = props.options;
 let priceOptions = Object.keys(options);
 const priceRef= useRef();
-
+const [showDesc,setShowDesc]=useState(false);
 const [qty,setQty] = useState(1);
 const [size,setSize] = useState("");
 
@@ -71,6 +71,12 @@ const [size,setSize] = useState("");
                         </button>
                     </div>
                 </div>
+                <div><p style={{textAlign:"center", cursor:"pointer"}} onClick={()=>setShowDesc(showDesc===false)}>{!showDesc?"⩣":"⩞"}</p>
+                
+                {showDesc?
+                    <p>{props.foodItem.description}</p>
+                    :""
+                }</div>
             </div>
         </div>
     )

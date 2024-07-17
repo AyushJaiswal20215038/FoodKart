@@ -1,12 +1,13 @@
 import React from 'react'
+import './styleAdmin.css'
 
 const UserOrder = ({ orders }) => {
-    console.log('props', orders);
+    // console.log('props', orders);
     return (
         <div className="container">
             <table class="table">
                 {orders.map((order, index) => {
-                    console.log('order', order);
+                    // console.log('order', order);
                     const orderDate = order[0].Order_date;
                     const Order_data = order.slice(1);
                     return (
@@ -15,6 +16,13 @@ const UserOrder = ({ orders }) => {
                                 <th>{orderDate}</th>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Name</td>
+                                    <td>Size</td>
+                                    <td>price</td>
+                                    <td>Qty</td>
+                                </tr>
                                 {Order_data.map((data, data_index) => {
                                     return (
                                         <tr>

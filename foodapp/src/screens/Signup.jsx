@@ -23,7 +23,7 @@ export default function Signup() {
             })
         });
         const json = await response.json()
-        console.log(json);
+        // console.log(json);
 
         if (!json.success) {
             alert("Enter Valid Credentials");
@@ -58,7 +58,7 @@ export default function Signup() {
                     {userType === "Admin" ?
                         (<div className="mb-3">
                             <label htmlFor="name" className="form-label">secret key</label>
-                            <input type="text" className="form-control" name='adminSecret' value={credentials.adminSecret} onChange={onChange} />
+                            <input type="password" className="form-control" name='adminSecret' value={credentials.adminSecret} onChange={onChange} />
                         </div>)
                         : ""
                     }

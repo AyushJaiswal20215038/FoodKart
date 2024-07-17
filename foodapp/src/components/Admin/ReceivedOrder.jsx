@@ -22,7 +22,7 @@ function ReceivedOrder() {
 
       const resOrderData = await response.json();
       setOrder(resOrderData);
-      console.log(resOrderData);
+      // console.log(resOrderData);
     } catch (err) {
       console.error('#err:', err);
     }
@@ -37,7 +37,7 @@ function ReceivedOrder() {
       {
         OrderData.map((ordered_user, index) => {
           let orderData=ordered_user.order_data.reverse();
-          console.log(orderData);
+          // console.log(orderData);
           return (
             <div className="container my-2" key={index}>
               <div className="card">

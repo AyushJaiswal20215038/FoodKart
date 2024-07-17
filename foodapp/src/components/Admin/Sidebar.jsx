@@ -1,9 +1,26 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
 import './styleAdmin.css';
+import { useNavigate } from 'react-router-dom';
+// import { IsAdmin } from '../Context/Admin/AdminState';
 
 export default function Sidebar({changePage}) {
 
+    const navigate = useNavigate();
+
+    
+    const handleLogout = ()=>{
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userType');
+        navigate(`/login`);
+    }
+
+    // const isAdmin= IsAdmin().isAdmin;
+    // if(isAdmin==="No"){
+    //     handleLogout();
+    // }
+    
     return (
         <div>
             <div className="bg-white sidebar p-2">
@@ -29,7 +46,7 @@ export default function Sidebar({changePage}) {
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">Food Items</span>
                     </div>
-                    <div className="list-group-item py-2" onClick={()=>alert("Logout")}>
+                    <div className="list-group-item py-2" onClick={()=>handleLogout()}>
                         <i className="bi bi-speedometer2 fs-5 me-3"></i>
                         <span className="fs-5">Logout</span>
                     </div>

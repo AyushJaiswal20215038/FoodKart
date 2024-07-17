@@ -45,7 +45,7 @@ export default function MyOrder() {
           }
       
           const resorderData = await response.json();
-          console.log(typeof(Object.values(resorderData)[0]),'#response->', Object.values(resorderData)[0]);
+          // console.log(typeof(Object.values(resorderData)[0]),'#response->', Object.values(resorderData)[0]);
           setOrderData(Object.values(resorderData)[0]);
         } catch (err) {
           console.error('#err:', err);
@@ -60,9 +60,9 @@ export default function MyOrder() {
 
     },[]);
 
-    console.log(typeof(Object.values(orderData)),(orderData));
+    // console.log(typeof(Object.values(orderData)),(orderData));
     const reverseData =[...orderData].slice().reverse();
-    console.log('reverseData:',reverseData);
+    // console.log('reverseData:',reverseData);
  
     return (
         <>

@@ -26,7 +26,7 @@ export default function Cart() {
                 order_date: new Date().toDateString()
             })
         });
-        console.log("Order Response:",response);
+        // console.log("Order Response:",response);
         if(response.status===200){
             dispatch({type:"DROP"})
         }
@@ -51,13 +51,13 @@ let totalPrice = data.reduce((total, food) => total + food.price, 0);
             <tbody>
                 {
                     data.map((food, index)=> (
-                        <tr>
+                        <tr key={index}>
                             <th scope='row'>{index + 1}</th>
                             <td>{food.name}</td>
                             <td>{food.qty}</td>
                             <td>{food.size}</td>
                             <td>{food.price}</td>
-                            <td><button type='button' className='btn p-0'><img src="" alt='delete' onClick={()=>{ dispatch({type: "REMOVE", index: index}) }} /> </button></td>
+                            <td><button type='button' className='btn p-0'><i className="bi bi-trash3-fill" alt='delete' onClick={()=>{ dispatch({type: "REMOVE", index: index}) }}/></button></td>
                         </tr>
                     ))
                 }

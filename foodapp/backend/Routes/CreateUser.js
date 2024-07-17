@@ -21,18 +21,19 @@ router.post("/createuser",[
         return res.status(400).json({errors : errors.array()});
     }
     const adSecret=req.body.adminSecret;
-    if(adSecret!==null&&adSecret!==adminSecret){
+
+    if(adSecret!==""&&adSecret!==adminSecret){
         return res.json({success:false});
     }
     const salt = await bcrypt.genSalt(10);
     let secPassword = await bcrypt.hash(req.body.password,salt);
     let secUserType ;
-    if(adSecret!==null){
+    if(adSecret!==""){
         secUserType=req.body.email+"Admin";
         secUserType= await bcrypt.hash(secUserType,salt);
     }
     try {
-        if(adSecret!==null){
+        if(adSecret!==""){
             await User.create({
                 name: req.body.name,
                 password: secPassword,
@@ -73,7 +74,7 @@ router.post("/loginuser",[
 
     try {
         let userData=await User.findOne({email : email});
-        console.log(userData);
+        // console.log(userData);
         if(!userData){
             return res.status(400).json({errors: "Try logging in with correct credentials"});
         }

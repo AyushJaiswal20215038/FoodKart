@@ -4,6 +4,9 @@ const FoodCatSchema = new mongoose.Schema({
     CategoryName: {
         type: String,
         required: true
+    },
+    options: {
+        type: Array
     }
 })
 

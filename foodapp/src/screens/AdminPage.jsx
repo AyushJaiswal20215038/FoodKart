@@ -3,6 +3,8 @@ import Sidebar from '../components/Admin/Sidebar'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import PageSpace from '../components/Admin/PageSpace'
+import { ItemProvider } from '../components/Context/FoodItemReducer'
+import AdminState from '../components/Context/Admin/AdminState'
 
 
 
@@ -13,6 +15,8 @@ export default function AdminPage() {
   }
 
   return (
+    <AdminState>
+    <ItemProvider>
     <div className='container-fluid bg-secondary min-vh-100'>
       <div className="row">
         <div className="col-2 bg-white">
@@ -23,5 +27,7 @@ export default function AdminPage() {
         </div>
       </div>
     </div>
+    </ItemProvider>
+    </AdminState>
   )
 }

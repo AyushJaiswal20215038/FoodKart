@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import "bootstrap/dist/js/bootstrap.bundle"
 
 const MODAL_STYLES = {
     position: 'fixed',
+    color: 'white',
     top: '50%',
     left: '50%',
     backgroundColor: 'rgb(34,34,34)',

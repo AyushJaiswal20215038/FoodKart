@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AdminContext from "./ContextAdmin";
 
 
 const AdminState = (props)=>{
-    const [userType,setUserType]= useState('User');
+    const [isAdmin,setIsAdmin]= useState('');
     const update = (Type)=>{
-        setUserType(Type);
+        setIsAdmin(Type);
     }
 
     return (
-        <AdminContext.Provider value={{userType ,update}}>
+        <AdminContext.Provider value={{isAdmin ,update}}>
             {props.children}
         </AdminContext.Provider>
     )
 }
 
 export default AdminState;
+export const IsAdmin = ()=> useContext(AdminContext);

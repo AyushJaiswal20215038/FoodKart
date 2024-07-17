@@ -12,6 +12,8 @@ function Navbar() {
 
     const handleLogout = ()=>{
         localStorage.removeItem("authToken");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userType");
         navigate("/login");
     }
 
@@ -32,9 +34,6 @@ function Navbar() {
                             {(localStorage.getItem("authToken")) ?
                                 <><li className="nav-item">
                                     <Link className="nav-link active fs-5" aria-current="page" to="/myOrder">My Orders</Link>
-                                </li>
-                                <li className="nav-item">
-                                <Link className="nav-link active fs-5" aria-current="page" to="/adminPage">Admin Page</Link>
                                 </li></>
                                 : ""
                             }
